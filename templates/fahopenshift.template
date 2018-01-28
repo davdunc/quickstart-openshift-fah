@@ -1060,33 +1060,7 @@
                                 "qs_aws-cfn-bootstrap || qs_err \" cfn bootstrap failed \"\n",
                                 "########################################################################################################################\n",
                                 "\n",
-                                "#Attach to Subscription pool\n",
-                                "subscription-manager register",
-                                " --username=",
-                                {
-                                    "Ref": "RedhatSubscriptionUserName"
-                                },
-                                " --password=",
-                                {
-                                    "Ref": "RedhatSubscriptionPassword"
-                                },
-                                " --force",
-                                "\n",
-                                "POOL_ID=",
-                                {
-                                    "Ref": "RedhatSubscriptionPoolID"
-                                },
-                                "\n",
-                                "subscription-manager attach --pool=${POOL_ID}\n",
-                                "yum-config-manager --disable *\n",
-                                "yum clean all\n",
-                                "yum repolist | grep OpenShift \n",
-                                "subscription-manager repos ",
-                                "--disable=\"rhel-7-server-ose-3.5-rpms\" ",
-                                "--enable=\"rhel-7-server-ose-3.6-rpms\" ",
-                                "--enable=\"rhel-7-server-extras-rpms\" ",
-                                "--enable=\"rhel-7-fast-datapath-rpms\" ",
-                                "\n",
+                                "#Origins does not attach to Subscription pool\n",
                                 "# Start cfn-init [GetPublicKey, AddPublicKey]\n",
                                 "cfn-init -v ",
                                 " --stack ",
@@ -1338,34 +1312,7 @@
                                 "sed -i 's/#log_path/log_path/g' /etc/ansible/ansible.cfg \n",
                                 "ansible -m ping all || n=0; until [[ $n -ge 50 ]]; do ansible -m ping all && break; n=$[$n+1]; done",
                                 "\n",
-                                "#Attach to Subscription pool\n",
-                                "subscription-manager register",
-                                " --username=",
-                                {
-                                    "Ref": "RedhatSubscriptionUserName"
-                                },
-                                " --password=",
-                                {
-                                    "Ref": "RedhatSubscriptionPassword"
-                                },
-                                " --force",
-                                "\n",
-                                "POOL_ID=",
-                                {
-                                    "Ref": "RedhatSubscriptionPoolID"
-                                },
-                                "\n",
-                                "subscription-manager attach --pool=${POOL_ID}\n",
-                                "yum-config-manager --disable *\n",
-                                "yum clean all\n",
-                                "subscription-manager repos ",
-                                "--disable=\"rhel-7-server-ose-3.5-rpms\" ",
-                                "--enable=\"rhel-7-server-ose-3.6-rpms\" ",
-                                "--enable=\"rhel-7-server-extras-rpms\" ",
-                                "--enable=\"rhel-7-fast-datapath-rpms\" ",
-                                "\n",
-                                "yum repolist | grep OpenShift \n",
-                                "#Install dependancies\n",
+                           	"#Install dependancies\n",
                                 "yum -y install wget git net-tools bind-utils iptables-services bridge-utils bash-completion kexec-tools sos psacct\n",
                                 "yum -y update \n",
                                 "yum -y install atomic-openshift-utils\n",

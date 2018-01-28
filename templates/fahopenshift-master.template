@@ -96,15 +96,6 @@
                 "VPCCIDR": {
                     "default": "VPC CIDR"
                 },
-                "RedhatSubscriptionUserName": {
-                    "default": "Red Hat Subscription UserName"
-                },
-                "RedhatSubscriptionPassword": {
-                    "default": "Red Hat Subscription Password"
-                },
-                "RedhatSubscriptionPoolID": {
-                    "default": "Red Hat PoolID"
-                },
                 "AnsiblePlayBookType": {
                     "default": "Ansible PlayBook Mode"
                 },

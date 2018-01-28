@@ -721,7 +721,7 @@
                         {
                             "Ref": "AWS::Region"
                         },
-                        "RHEL74HVM"
+                        "FAH27"
                     ]
                 },
                 "BlockDeviceMappings": [{
@@ -884,7 +884,7 @@
                         {
                             "Ref": "AWS::Region"
                         },
-                        "RHEL74HVM"
+                        "FAH27"
                     ]
                 },
                 "BlockDeviceMappings": [{

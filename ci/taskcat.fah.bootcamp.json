@@ -12,7 +12,7 @@
 },
 {
 "ParameterKey": "OpenShiftAdminPassword",
-"ParameterValue": "R3dhatPass"
+"ParameterValue": "OriginPass$"
 },
 {
 "ParameterKey": "QSS3BucketName",

@@ -194,18 +194,6 @@
             "Description": "The CIDR IP range that is permitted to access the instances We recommend that you set this value to a trusted IP range.",
             "Type": "String"
         },
-        "RedhatSubscriptionUserName": {
-            "Description": "Enter Redhat RHN UserName",
-            "Type": "String"
-        },
-        "RedhatSubscriptionPassword": {
-            "Description": "Enter Redhat RHN Password",
-            "Type": "String"
-        },
-        "RedhatSubscriptionPoolID": {
-            "Description": "Enter Redhat RHN PoolID",
-            "Type": "String"
-        },
         "AnsiblePlayBookType": {
             "Description": "Note:This QuickStart only supports OpenSource-Version for Development Purposes!",
             "Default": "OpenSource-Version",

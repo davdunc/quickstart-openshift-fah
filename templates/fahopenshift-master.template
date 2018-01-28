@@ -42,16 +42,6 @@
                 },
                 {
                     "Label": {
-                        "default": "Red Hat Subscription Information"
-                    },
-                    "Parameters": [
-                        "RedhatSubscriptionUserName",
-                        "RedhatSubscriptionPassword",
-                        "RedhatSubscriptionPoolID"
-                    ]
-                },
-                {
-                    "Label": {
                         "default": "Ansible PlayBook Configuration"
                     },
                     "Parameters": [
@@ -227,7 +217,7 @@
         },
         "AnsiblePlayBookType": {
             "Description": "Note:This QuickStart only supports OpenSource-Version for Development Purposes!",
-            "Default": "Subscription-Version",
+            "Default": "OpenSource-Version",
             "AllowedValues": [
                 "Subscription-Version",
                 "OpenSource-Version"
@@ -236,7 +226,7 @@
         },
         "AnsiblePlayBookGitRepoTag": {
             "Description": "Only Used if [OpenSource-Version] is selected. List of Development Releases available here -> https://github.com/openshift/openshift-ansible/releases",
-            "Default": "3.6.173.0.5-5",
+            "Default": "3.7.25-1",
             "Type": "String"
         },
         "VPCCIDR": {
@@ -367,7 +357,7 @@
             "Type": "AWS::CloudFormation::Stack",
             "Properties": {
                 "TemplateURL": {
-                    "Fn::Sub": "https://${QSS3BucketName}.s3.amazonaws.com/${QSS3KeyPrefix}templates/openshift.template"
+                    "Fn::Sub": "https://${QSS3BucketName}.s3.amazonaws.com/${QSS3KeyPrefix}templates/fahopenshift.template"
                 },
                 "Parameters": {
                     "MasterInstanceType": {
@@ -423,15 +413,6 @@
                     },
                     "QSS3KeyPrefix": {
                         "Ref": "QSS3KeyPrefix"
-                    },
-                    "RedhatSubscriptionUserName": {
-                        "Ref": "RedhatSubscriptionUserName"
-                    },
-                    "RedhatSubscriptionPassword": {
-                        "Ref": "RedhatSubscriptionPassword"
-                    },
-                    "RedhatSubscriptionPoolID": {
-                        "Ref": "RedhatSubscriptionPoolID"
                     },
                     "VPCCIDR": {
                         "Ref": "VPCCIDR"

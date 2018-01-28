@@ -1,0 +1,38 @@
+[{
+"ParameterKey": "AvailabilityZones",
+"ParameterValue": "$[taskcat_genaz_3]"
+n},
+{
+"ParameterKey": "KeyPairName",
+"ParameterValue": "davdunc@amazon.com"
+},
+{
+"ParameterKey": "NumberOfNodes",
+"ParameterValue": "3"
+},
+{
+"ParameterKey": "OpenShiftAdminPassword",
+"ParameterValue": "R3dhatPass"
+},
+{
+"ParameterKey": "QSS3BucketName",
+"ParameterValue": "davdunc-openshift-redhat"
+},
+{
+"ParameterKey": "QSS3KeyPrefix",
+"ParameterValue": "quickstart-redhat-openshift/"
+},
+{
+"ParameterKey": "RemoteAccessCIDR",
+"ParameterValue": "0.0.0.0/0"
+},
+{
+"ParameterKey": "VPCCIDR",
+"ParameterValue": "10.0.0.0/16"
+},
+{
+"ParameterKey": "ContainerAccessCIDR",
+"ParamterValue": "0.0.0.0/0"
+}
+]
+

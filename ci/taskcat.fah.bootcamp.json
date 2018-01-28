@@ -32,7 +32,7 @@ n},
 },
 {
 "ParameterKey": "ContainerAccessCIDR",
-"ParamterValue": "0.0.0.0/0"
+"ParameterValue": "0.0.0.0/0"
 }
 ]
 

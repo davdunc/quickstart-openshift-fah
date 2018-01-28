@@ -1,7 +1,7 @@
 [{
 "ParameterKey": "AvailabilityZones",
 "ParameterValue": "$[taskcat_genaz_3]"
-n},
+},
 {
 "ParameterKey": "KeyPairName",
 "ParameterValue": "davdunc@amazon.com"

@@ -1,6 +1,6 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "OpenShift Template (basetemplate with synced sshkeys)",
+    "Description": "OpenShift Origins Template (basetemplate with synced sshkeys)",
     "Metadata": {
         "AWS::CloudFormation::Interface": {
             "ParameterGroups": [{
@@ -51,16 +51,6 @@
                 },
                 {
                     "Label": {
-                        "default": "Red Hat Subscription Information"
-                    },
-                    "Parameters": [
-                        "RedhatSubscriptionUserName",
-                        "RedhatSubscriptionPassword",
-                        "RedhatSubscriptionPoolID"
-                    ]
-                },
-                {
-                    "Label": {
                         "default": "AWS Quick Start Configuration"
                     },
                     "Parameters": [
@@ -105,15 +95,6 @@
                 },
                 "VPCCIDR": {
                     "default": "VPC CIDR"
-                },
-                "RedhatSubscriptionUserName": {
-                    "default": "Red Hat Subscription UserName"
-                },
-                "RedhatSubscriptionPassword": {
-                    "default": "Red Hat Subscription Password"
-                },
-                "RedhatSubscriptionPoolID": {
-                    "default": "Red Hat PoolID"
                 },
                 "AnsiblePlayBookType": {
                     "default": "Ansible PlayBook Mode"
@@ -191,21 +172,9 @@
             "Description": "The CIDR IP range that is permitted to access the instances We recommend that you set this value to a trusted IP range.",
             "Type": "String"
         },
-        "RedhatSubscriptionUserName": {
-            "Description": "Enter Redhat RHN UserName",
-            "Type": "String"
-        },
-        "RedhatSubscriptionPassword": {
-            "Description": "Enter Redhat RHN Password",
-            "Type": "String"
-        },
-        "RedhatSubscriptionPoolID": {
-            "Description": "Enter Redhat RHN PoolID",
-            "Type": "String"
-        },
         "AnsiblePlayBookType": {
             "Description": "Note:This QuickStart only supports OpenSource-Version for Development Purposes!",
-            "Default": "Subscription-Version",
+            "Default": "OpenSource-Version",
             "AllowedValues": [
                 "Subscription-Version",
                 "OpenSource-Version"
@@ -214,7 +183,7 @@
         },
         "AnsiblePlayBookGitRepoTag": {
             "Description": "Only Used if [OpenSource-Version] is selected. List of Development Releases available here -> https://github.com/openshift/openshift-ansible/releases",
-            "Default": "3.6.173.0.5-5",
+            "Default": "3.7.25-1",
             "Type": "String"
         },
         "VPCCIDR": {
@@ -320,55 +289,70 @@
     "Mappings": {
         "AWSAMIRegionMap": {
             "AMI": {
+		"FAH27": "Fedora-Atomic-27-20180127.0.x86_64-us-west-2-HVM-standard-0",
                 "RHEL74HVM": "RHEL-7.2_HVM-20161025-x86_64-1-Hourly2-GP2"
             },
             "ap-northeast-1": {
+		"FAH27": "ami-f660f899",
                 "RHEL74HVM": "ami-2265c543"
             },
             "ap-northeast-2": {
-                "RHEL74HVM": "ami-a9e532c7"
+                "RHEL74HVM": "ami-a9e532c7",
+		"FAH27": "ami-009a6362"
             },
             "ap-south-1": {
                 "RHEL74HVM": "ami-917205fe"
             },
             "ap-southeast-1": {
-                "RHEL74HVM": "ami-22953841"
+                "RHEL74HVM": "ami-22953841",
+		"FAH27": "ami-32c3b84e"
             },
             "ap-southeast-2": {
-                "RHEL74HVM": "ami-91cdf0f2"
+                "RHEL74HVM": "ami-91cdf0f2",
+		"FAH27": "ami-009a6362"
             },
             "ca-central-1": {
-                "RHEL74HVM": "ami-b764d6d3"
+                "RHEL74HVM": "ami-b764d6d3",
             },
             "eu-central-1": {
-                "RHEL74HVM": "ami-7def1712"
+                "RHEL74HVM": "ami-7def1712",
+		"FAH27": "ami-f660f899"
             },
             "eu-west-1": {
-                "RHEL74HVM": "ami-b22961c1"
+                "RHEL74HVM": "ami-b22961c1",
+		"FAH27": "ami-a098f9d9"
             },
             "eu-west-2": {
-                "RHEL74HVM": "ami-b9353fdd"
+                "RHEL74HVM": "ami-b9353fdd",
+		"FAH27": "ami-dc3c82a4"
             },
             "sa-east-1": {
-                "RHEL74HVM": "ami-28f66a44"
+                "RHEL74HVM": "ami-28f66a44",
+		"FAH27": "ami-b4a1edd8"
             },
             "us-east-1": {
-                "RHEL74HVM": "ami-c998b6b2"
+                "RHEL74HVM": "ami-c998b6b2",
+		"FAH27": "ami-fd566987"
             },
             "us-east-2": {
                 "RHEL74HVM": "ami-0a33696f"
             },
             "us-west-1": {
-                "RHEL74HVM": "ami-f88fc498"
+                "RHEL74HVM": "ami-f88fc498",
+		"FAH27": "ami-fe65699e"
             },
             "us-west-2": {
-                "RHEL74HVM": "ami-5dd3743d"
+                "RHEL74HVM": "ami-5dd3743d",
+		"FAH27": "ami-dc3c82a4"
             }
         },
         "LinuxAMINameMap": {
             "Redhat-Enterprise-Linux-7": {
                 "Code": "RHEL74HVM"
-            }
+            },
+	    "Fedora-Atomic-Host-27": {
+		"Code": "FAH27"
+	    }
         }
     },
     "Conditions": {
